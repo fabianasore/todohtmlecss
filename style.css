@@ -1,0 +1,166 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea, #9c63d4);
+    display: flex;
+    flex-direction: column;
+}
+header {
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.board {
+    display: flex;
+    gap: 25px;
+    padding: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.column {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    padding: 20px;
+    border-radius: 15px;
+    width: 320px;
+    min-height: 450px;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+    transition: 0.3s;
+}
+
+.column:hover {
+    transform: translateY(-5px);
+}
+
+.column h2 {
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.task-input-container {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.task-input-container input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 14px;
+}
+
+.task-input-container button {
+    padding: 10px 14px;
+    border: none;
+    background: white;
+    color: #4d2674;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.task-input-container button:hover {
+    background: #f1f1f1;
+}
+
+ul {
+    list-style: none;
+    flex-grow: 1;
+}
+
+li {
+    background: white;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 12px;
+    cursor: grab;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: 0.2s;
+    animation: fadeIn 0.3s ease;
+}
+
+li:hover {
+    transform: scale(1.03);
+}
+
+li.dragging {
+    opacity: 0.5;
+    transform: rotate(2deg);
+}
+
+.task-text {
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+}
+
+
+.task-actions {
+    margin-top: 10px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+}
+
+.task-actions button {
+    border: none;
+    padding: 5px 8px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.edit-btn {
+    background: #f39c12;
+    color: white;
+}
+
+.edit-btn:hover {
+    background: #d68910;
+}
+
+.delete-btn {
+    background: #e74c3c;
+    color: white;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}
+
+/* Animação */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsividade */
+@media (max-width: 1000px) {
+    .board {
+        flex-direction: column;
+        align-items: center;
+    }
+}
